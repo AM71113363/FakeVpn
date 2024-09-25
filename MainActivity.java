@@ -51,11 +51,11 @@ public class MainActivity extends Activity
 	}
 	private void loadInts()
 	{
-	    int2=dpi2px(   0.761f );
+	        int2=dpi2px(   0.761f );
 		int4=dpi2px(   1.523f );
-	    int10=dpi2px(  3.809f );
+	        int10=dpi2px(  3.809f );
 		int20=dpi2px(  7.619f );
-	    int150=dpi2px(57.142f );
+	        int150=dpi2px(57.142f );
 		int170=dpi2px(64.761f );
 	}
 	
@@ -70,10 +70,10 @@ public class MainActivity extends Activity
 		if(_isError==true){ showText.setTextColor(Color.RED);}
 		else{ showText.setTextColor(Color.GREEN);}
 		asp.setView(showText);
-	    asp.setTitle(title);
+	        asp.setTitle(title);
 		asp.setCancelable(true);
 		asp.setIcon(R.drawable.logo);
-        asp.setPositiveButton("Confirm",new DialogInterface.OnClickListener()
+                asp.setPositiveButton("Confirm",new DialogInterface.OnClickListener()
 			{
 				public void onClick(DialogInterface dg,int jf)
 				{
@@ -152,14 +152,14 @@ public class MainActivity extends Activity
 		btn1Param.rightMargin=int20;
 		name.setBackgroundColor(Color.TRANSPARENT);
 		name.setPadding(int170,int20,0,0);
-	    name.setGravity(Gravity.LEFT);
-        name.setTypeface(null,Typeface.ITALIC);
+	        name.setGravity(Gravity.LEFT);
+                name.setTypeface(null,Typeface.ITALIC);
 		container.addView(name,btn1Param);
 		container.setBackground(myShape(int4,Color.rgb(0x80,0x80,0x80),70));
      
 		name.setText(AppName+"\r\n"+packageName);
 		
-        name.setTransformationMethod(null);
+                name.setTransformationMethod(null);
 		name.setOnClickListener(new OnClickListener()
 			{
 				@Override
@@ -183,9 +183,7 @@ public class MainActivity extends Activity
 						
 						BAG cm=new BAG(data.appName(),data.packageName(),data.image());
 
-						View frame=makeFrame(cm,data.appName(),
-											 data.packageName(),
-											 data.image());
+						View frame=makeFrame(cm,data.appName(),data.packageName(),data.image());
 						
 						if(data.isBlocked()) //top view,not blur
 						{
@@ -245,7 +243,7 @@ public class MainActivity extends Activity
 			Drawable icon=uno.loadIcon(getPackageManager());
 			
 			bagBlocked=new BAG(AppName,PackageName,icon);
-		    fBlocked=makeFrame(bagBlocked,AppName,PackageName,icon);
+		        fBlocked=makeFrame(bagBlocked,AppName,PackageName,icon);
 			if(both == true)
 			{
 				bagAllowed=new BAG(AppName,PackageName,icon);
@@ -299,7 +297,7 @@ public class MainActivity extends Activity
 		{
 			s="";
 			err=false;
-            for(int i=0;i<len;i++)
+                        for(int i=0;i<len;i++)
 			{
 				FrameLayout frm=(FrameLayout)hAllowedContainer.getChildAt(i);
 				if(frm!=null)
@@ -349,7 +347,7 @@ public class MainActivity extends Activity
 		//hScrollA.setBackgroundColor(Color.TRANSPARENT);
 		hScrollA.setBackground(myShape(int10,Color.GREEN,10));
 		
-	    FrameLayout.LayoutParams  hScrollParamsB=new FrameLayout.LayoutParams(-1,-1);
+	        FrameLayout.LayoutParams  hScrollParamsB=new FrameLayout.LayoutParams(-1,-1);
 		FrameLayout.LayoutParams  hScrollParamsA=new FrameLayout.LayoutParams(-1,-1);
 		int top = dpi2px(40f);
 		Display dsp=getWindowManager().getDefaultDisplay();
@@ -367,7 +365,7 @@ public class MainActivity extends Activity
 			height-=getResources().getDimensionPixelSize(resId);
 		height-=top;
 		int half=height/2;
-	    hScrollParamsB.topMargin=top;
+	        hScrollParamsB.topMargin=top;
 		hScrollParamsA.topMargin=top+half;
 		
 		hScrollParamsB.height= half;
