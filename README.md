@@ -3,7 +3,8 @@
 </p>
 
 ## About<br>
-●it creates a Vpn that doesnt connect to internet.<br>
+●it creates a Vpn that doesn't connect to internet.<br>
+●by default all apps will try to connect using the Vpn and they will get ignored,but the Apps in the whitelist will get exluded from the Vpn,for them the Vpn doesn't exist.<br>
 ●it handles only Dns requests on port 53,and ignores the other requests<br>
 
 ## How to use it <br>
