@@ -1,3 +1,6 @@
+//COPYRIGHT AM71113363
+
+
 package sss.am71113363.fakevpn;
 
 import android.app.PendingIntent;
@@ -74,17 +77,18 @@ public class FakeVpnService extends VpnService
 
 			if(buffer.getShort(UDP_DST_PORT_OFFSET) != 53)
 				return false;
-
+                        //<trick>
 			ipId=buffer.getShort(IP_ID_OFFSET)&0xFFFF;
 			ipCheckSum=buffer.getShort(IP_CHECKSUM_OFFSET)&0xFFFF;
 			buffer.putShort(IP_ID_OFFSET,(short)(ipCheckSum&0xFFFF));
 			buffer.putShort(IP_CHECKSUM_OFFSET,(short)(ipId&0xFFFF));
-         
+                        //</trick>
 			ipSrcAddr=buffer.getInt(IP_SRC_ADDR_OFFSET);
 			ipDstAddr=buffer.getInt(IP_DST_ADDR_OFFSET);
+			
 			buffer.putInt(IP_SRC_ADDR_OFFSET,ipDstAddr);
 			buffer.putInt(IP_DST_ADDR_OFFSET,ipSrcAddr);
-
+                        
 			udpSrcPort=buffer.getShort(UDP_SRC_PORT_OFFSET);
 			udpDstPort=buffer.getShort(UDP_DST_PORT_OFFSET);
 			udpChecksum=buffer.getShort(UDP_CHECKSUM_OFFSET)&0xFFFF;
@@ -99,13 +103,13 @@ public class FakeVpnService extends VpnService
 
 
 			udpChecksum ^=0xffff;
-			udpChecksum	+=0x10000;//avoid negative values
-			udpChecksum	-=dnsFlags;
+			udpChecksum +=0x10000;//avoid negative values
+			udpChecksum -=dnsFlags;
 			udpChecksum +=0x8184; //0x8183 + 0x1
 			while((udpChecksum>>16)>0)
 				udpChecksum = (udpChecksum&0xFFFF) +(udpChecksum >>16);
 			udpChecksum--;
-			udpChecksum	^=0xFFFF;
+			udpChecksum ^=0xFFFF;
 
 			buffer.putShort(UDP_CHECKSUM_OFFSET,(short)(udpChecksum&0xFFFF));
 			buffer.position(0);
@@ -130,11 +134,11 @@ public class FakeVpnService extends VpnService
 	@Override
 	public void onCreate() {
 		super.onCreate();
-        ctx = this;
+                ctx = this;
 		windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 		lnTop=new FrameLayout(this);
 		ImageView img=new ImageView(this);
-        img.setClickable(false);
+                img.setClickable(false);
 		img.setImageResource(R.drawable.logo);
 		FrameLayout.LayoutParams pImg=new FrameLayout.LayoutParams(-2,-1);
 		lnTop.addView(img, pImg);
@@ -159,7 +163,7 @@ public class FakeVpnService extends VpnService
 		lnTop.addView(txt,txtP);
 
 
-        WindowManager.LayoutParams
+               WindowManager.LayoutParams
 		params= new WindowManager.LayoutParams(
 			-1,
 			-2,
@@ -172,7 +176,7 @@ public class FakeVpnService extends VpnService
 		params.y = 0;
 		//params.width=MainActivity.dpi2px(120);
 		params.height=MainActivity.dpi2px(30);
-        lnTop.setAlpha(0.74f);
+                lnTop.setAlpha(0.74f);
 		lnTop.setBackgroundColor(Color.TRANSPARENT);
 		status.setTextColor(Color.BLUE);
 		txt.setTextColor(Color.RED);
@@ -185,7 +189,7 @@ public class FakeVpnService extends VpnService
 		status.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
 		txt.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
 		windowManager.addView(lnTop, params);
-	    String ip=DATABASE.IP();
+	        String ip=DATABASE.IP();
 		if(ip.length()<8)
 		{
 			stopSelf();
