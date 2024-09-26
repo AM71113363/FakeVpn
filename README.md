@@ -3,7 +3,7 @@
 </p>
 
 ## About<br>
-■ LET 1 OR MORE APPS USE THE FULL SPEED OF YOUR INTERNET(MOBILE / WIFI)
+■ LET 1 OR MORE APPS USE THE FULL SPEED OF YOUR INTERNET(MOBILE / WIFI)<br>
 ●it creates a Vpn that doesn't connect to internet.<br>
 <p align="center">
 <img align="center" width="432" height="258" src="https://raw.githubusercontent.com/AM71113363/FakeVpn/master/devs.png">
