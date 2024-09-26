@@ -7,7 +7,7 @@
 <p align="center">
 <img align="center" width="432" height="258" src="https://raw.githubusercontent.com/AM71113363/FakeVpn/master/devs.png">
 </p>
-●by default all apps will try to connect using the Vpn and they will get ignored,but the Apps in the whitelist will get exluded from the Vpn,for them the Vpn doesn't exist.<br>
+●by default all apps will try to connect using the Vpn and they will get ignored,but the Apps in the whitelist will get excluded from the Vpn,for them the Vpn doesn't exist.<br>
 ●it handles only Dns requests on port 53,and ignores the other requests<br>
 
 ## How to use it <br>
